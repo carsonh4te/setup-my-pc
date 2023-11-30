@@ -9,7 +9,7 @@ Easy installation of things on the fresh pc (or not)
 ## Installing
 
 ```bash
-$ git clone https://github.com/jonaselan/setup-my-pc.git
+$ git clone https://github.com/carsonh4te/setup-my-pc.git
 $ cd setup-my-pc
 $ ./install.sh
 ```
@@ -20,52 +20,34 @@ With a fresh pc, I recommend follow this steps:
 
 ```bash
 # step 1
-$ smpc install basic
+$ setuphelper install basic
 # step 2
-$ smpc install personal
+$ setuphelper install personal
 # step 3
-$ smpc install dev
+$ setuphelper install dev
 ```
 
 ## Available options
 
 - basic: install all basic tools
-- personal: install all personal tools
-- dev: install all development tools
+- WIP - personal: install all personal tools
+- WIP - dev: install all development tools
 
 ### Basic
 
-- vim
-- wget
-- curl
-- java
-- node
+- zsh
+- git
+- neofetch
+- alacritty
+- ohmyzsh
 
 ### Personal
 
-- ohmyzsh
-- terminator
-- bat
-- ripgrep
-- kolourpaint4
-- spotify
-- vlc
-- fira_code
-- exa
-- sxhkd
+- WIP
 
 ### Dev
 
-- php
-- docker
-- docker-compose
-- composer
-- dbeaver
-- postman
-- htop
 - apache2
-- nginx
-- postgresql
-- mysq
+- mysql
 
 Project inspired by [MEOU](https://github.com/DavidCardoso/my-env-on-ubuntu)

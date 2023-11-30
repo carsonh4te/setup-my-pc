@@ -1,16 +1,16 @@
 Usage:
-	smpc [ACTION]
-	smpc [ACTION] [OPTION]
+	setuphelper [ACTION]
+	setuphelper [ACTION] [OPTION]
 
 Action:
 	install 	Install the software related to the [OPTION] chosen
-	version 	Show last version of smpc
-	help 			Show this help message
+	version 	Show last version of setuphelper
+	help 		Show this help message
 
 Option:
 	basic 		Install basic tools
-	personal 	Install jonaselan personal tools
-	dev 			Install development tools
+	personal 	Install carsonh4te personal tools
+	dev 		Install development tools
 
 Example:
-	smpc install personal
+	setuphelper install personal

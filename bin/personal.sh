@@ -1,7 +1,6 @@
 #!/bin/bash
 
 personal_packages=(
-  'ohmyzsh'
   'delta'
   'zshplugins'
   'prettyping'
@@ -119,48 +118,6 @@ install_vlc(){
 	success "VLC installed"
 }
 
-install_ohmyzsh(){
-	if [[ -e /usr/bin/zsh && -e ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
-		fail "Oh-My-Zsh is already installed!"
-	else
-		info "Installing Oh-My-Zsh"
-		info "Based on: https://github.com/robbyrussell/oh-my-zsh/blob/master/README.md"
-
-		if [[ ! -e /usr/bin/zsh ]]; then
-			user "Zsh is required. Do you want install it? (y/n)"
-			read choice;
-
-			if [[ $choice == "y" ]]; then
-				sudo apt update && sudo apt install zsh
-				chsh -s $(which zsh)
-				zsh --version
-			fi
-		fi
-
-		if [[ -e /usr/bin/curl ]]; then
-			cd
-			sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-			cd -
-		else
-			if [[ -e /usr/bin/wget ]]; then
-				cd
-				sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-				cd -
-			else
-				user "curl or wget is required. Do you want install them? (y/n)"
-				read choice;
-
-				if [[ $choice == "y" ]]; then
-					sudo apt update && sudo apt install wget curl
-					smpc $_action $_option
-				fi
-			fi
-		fi
-
-		success "Oh-My-Zsh Installed"
-	fi
-}
-
 install_prettyping(){
 	info "Installing Prettyping"
 	info "Based on: http://denilson.sa.nom.br/prettyping/"
@@ -181,41 +138,6 @@ install_delta() {
 	rm delta_0.0.14_amd64.deb
 
 	success "Delta Installed"
-}
-
-# I know the exist plugin managers, but this way I don't install extra things
-install_zshplugins(){
-	info "Installing zsh-syntax-highlighting"
-	info "Based on: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md#oh-my-zsh"
-
-	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-	success "zsh-syntax-highlighting Installed"
-	# ------------
-	info "Installing zsh-autosuggestions"
-	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
-
-	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-	success "zsh-autosuggestions Installed"
-	# ------------
-	info "Installing zsh-interactive-cd"
-	info "https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh"
-
-	git clone https://github.com/changyuheng/zsh-interactive-cd.git "$ZSH_CUSTOM/plugins/zsh-interactive"
-	success "zsh-interactive-cd Installed"
-	# ------------
-	info "Installing Spaceship theme"
-	info "https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh"
-
-	git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-	success "spaceship-theme Installed"
-	# ------------
-	info "Installing Forgit"
-	info "https://github.com/wfxr/forgit"
-
-	git clone https://github.com/wfxr/forgit.git "$ZSH_CUSTOM/plugins/forgit"
-
-	success "Forgit Installed"
 }
 
 install_fira_code(){

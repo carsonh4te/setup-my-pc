@@ -8,10 +8,10 @@ _option=$2 # option of commands to run
 _tag=$3 # tag to modify some behavior of the execution
 
 # importing functions
-. $SMPCPATH/bin/helpers.sh
-. $SMPCPATH/bin/basic.sh
-. $SMPCPATH/bin/dev.sh
-. $SMPCPATH/bin/personal.sh
+. $APPPATH/bin/helpers.sh
+. $APPPATH/bin/basic.sh
+. $APPPATH/bin/dev.sh
+. $APPPATH/bin/personal.sh
 
 main() {
   if [[ $_action == "install" ]]; then

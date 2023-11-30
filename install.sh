@@ -3,16 +3,16 @@
 # general variables
 _user=$(whoami)
 _pwd=$(pwd)
-_prefix="[SMPC]"
+_prefix="[setuphelper]"
 
 # symbolic link for keep ref anywhere
-echo "$_prefix Creating symbolic link 'smpc' on /usr/local/bin/ path..."
+echo "$_prefix Creating symbolic link 'setuphelper' on /usr/local/bin/ path..."
 if [[ $_user != "root" ]]; then
-	sudo rm /usr/local/bin/smpc # case already exist
-	sudo ln -s $_pwd/bin/smpc.sh /usr/local/bin/smpc
+	sudo rm /usr/local/bin/setuphelper # case already exist
+	sudo ln -s $_pwd/bin/setuphelper.sh /usr/local/bin/setuphelper
 else
-	rm /usr/local/bin/smpc
-	ln -s $_pwd/bin/smpc.sh /usr/local/bin/smpc
+	rm /usr/local/bin/setuphelper
+	ln -s $_pwd/bin/setuphelper.sh /usr/local/bin/setuphelper
 fi
 
 # adding execution permission to the scripts in bin path
@@ -25,4 +25,4 @@ for _profiles in ~/.*rc; do
 	echo -e "\n export SMPCPATH=$_pwd" >> $_profiles
 done
 
-export SMPCPATH=$_pwd
+export APPPATH=$_pwd

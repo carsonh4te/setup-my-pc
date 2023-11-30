@@ -2,21 +2,15 @@
 
 update_dotfiles() {
 	# clone dotifles
-	git clone https://github.com/jonaselan/dotfiles.git ~/.smpc
+	git clone https://github.com/carsonh4te/dotfiles.git ~/.smpc
 
 	# Setup folders
-	mkdir ~/.config/terminator/
-	mkdir ~/.config/sxhkd/
-	mkdir ~/.config/fusuma/
+	# none needed
 
 	# src:dest
 	link_files=(
 		"$HOME/.smpc/.zshrc:$HOME/.zshrc"
-		"$HOME/.smpc/.vimrc:$HOME/.vimrc"
-		"$HOME/.smpc/.gitconfig:$HOME/.gitconfig"
-		"$HOME/.smpc/terminator:$HOME/.config/terminator/config"
-		"$HOME/.smpc/sxhkdrc:$HOME/.config/sxhkd/sxhkdrc"
-		"$HOME/.smpc/fusuma.yml:$HOME/.config/fusuma/config.yml"
+		# "$HOME/.smpc/[FILE]:$HOME/.[FILE]"
 	)
 
 	# Link files
@@ -35,6 +29,9 @@ update_dotfiles() {
 	success 'Dotfiles updated'
 }
 
+###################
+###### STYLE ######
+###################
 info () {
 	printf "\r  [ \033[00;34m...\033[0m ] $1\n"
 }
@@ -54,6 +51,9 @@ success () {
 fail () {
 	printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
 }
+##########################
+###### END OF STYLE ######
+##########################
 
 command_exists() {
 	# redirect the output of your program to "nothing"
@@ -62,12 +62,12 @@ command_exists() {
 
 show_help(){
 	echo
-	cat $SMPCPATH/help.txt
+	cat $APPPATH/help.txt
 	echo
 }
 
 show_version(){
-	cd $SMPCPATH && git fetch -vp 2&> /dev/null
+	cd $APPPATH && git fetch -vp 2&> /dev/null
 	git tag -l --sort=v:refname | egrep v. | tail -1
 	cd - 2&> /dev/null
 }
